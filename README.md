@@ -14,29 +14,29 @@ This script generate Graph at run time and Processing happens at Client Side. He
 #### Understand Approach By Simple ASCII Diagram
 ```
 
-	|-------------------|
-	|       WEB         |
-	|      SERVER       |
-	|                   |
-	|-------------------|
-	        | |
-	[SERVER HTTP RESPONSE]
-			| |
-			| |
-			| |
-			| |
-			| |
-	|----------------------|
-	|   CLINET BROWSER     |
-	|......................|
-	|      STEP ONE        |  < ==== [ Retreiving mGraph JavaScript]      
-	|......................|
-	|      STEP TWO        |  < ==== [ Find Markdown ]
-	|......................|
-	|      STEP THREE      |  < ==== [ Generate SVG Graph Data ]
-	|......................|
-	|      STEP Four       |  < ==== [ Insert Graph in Place of Markdown ]
-	|----------------------|
+    |-------------------|
+    |       WEB         |
+    |      SERVER       |
+    |                   |
+    |-------------------|
+            | |
+    [SERVER HTTP RESPONSE]
+            | |
+            | |
+            | |
+            | |
+            | |
+    |----------------------|
+    |   CLINET BROWSER     |
+    |......................|
+    |      STEP ONE        |  < ==== [ Retreiving mGraph JavaScript]      
+    |......................|
+    |      STEP TWO        |  < ==== [ Find Markdown ]
+    |......................|
+    |      STEP THREE      |  < ==== [ Generate SVG Graph Data ]
+    |......................|
+    |      STEP Four       |  < ==== [ Insert Graph in Place of Markdown ]
+    |----------------------|
 
 ```
 
@@ -59,26 +59,17 @@ GRAPH_PROPERTY;
 
 
 ### GRAPH_NAME Supported
-|No|GRAPH_NAME |
-|1|LINECHART   |
-|2|BARCHART    |
-|3|GANTTCHART  |
-|4|FLOWCHART   |
-|5|PIECHART    |
-|6|CUSTOMCHART |
+| No | GRAPH_NAME  |
+|---|---|
+| 1  | LINECHART   |
+| 2  | BARCHART    |
+| 3  | GANTTCHART  |
+| 4  | FLOWCHART   |
+| 5  | PIECHART    |
+| 6  | CUSTOMCHART |
 
 
-#### Example One
-```
-chartName;
-
-xAxix_name, yAxix_name
-xVal_1, yVal_1 
-xVal_1, yVal_1 
-xVal_1, yVal_1 
-xVal_1, yVal_1 
-
-```
+### Examples 
 
 #### LINECHART
 To create linechart diagram use the following syntax.
@@ -88,10 +79,10 @@ LINECHART
 ------------------
 
 POINT_LABEL_NAME | POINT_CONNECTIVITY | POINT_PROPERTIES
-A | B, C | PLACE=(row, column)
-B | E    | PLACE=(row, column)
-C | D    | PLACE=(x_coordinate, y_coordinate)
-D | E    | PLACE=(x_coordinate, y_coordinate)
+| A | B, C |
+| B | E    | 
+| C | D    | 
+| D | E    | 
 
 
 
@@ -107,14 +98,14 @@ A ------ B ------------- E
 #### PIECHART
 Syntax:
 ```
-	PIECHART
-		------------------
+    PIECHART
+        ------------------
 
-		LABEL_NAME | PERSENTAGE | POINT_PROPERTIES
-		A | 50    | COLOR=RED
-		B | 30    | COLOR=BLUE
-		C | 10    | COLOR=GREEN
-		D | 10    | COLOR=BROWN
+        | LABEL_NAME | PERSENTAGE | POINT_PROPERTIES
+        | A | 50    | COLOR=RED
+        | B | 30    | COLOR=BLUE
+        | C | 10    | COLOR=GREEN
+        | D | 10    | COLOR=BROWN
 
 ```
 #### FLOWCHART
@@ -131,9 +122,48 @@ D | E    | PLACE=(x_coordinate, y_coordinate)
 
 ```
 
+#### Usages Approach
+```
+STEP One: Add Script To HTML WEBPAGE
+
+<head>
+    <script src="mGraph.min.js"></script>
+</head>
+
+
+
+STEP Two: Diagram Structure Anywhere in HTML Body.
+
+<div class="mgraph" id="Chart0">
+
+Ye Div Processing ke badh.. automatically hide mode m
+    <div class="mgraph_PIECHART">
+
+        PIECHART
+        ------------------
+
+        LABEL_NAME | PERSENTAGE | POINT_PROPERTIES
+        A | 50    | COLOR=RED
+        B | 30    | COLOR=BLUE
+        C | 10    | COLOR=GREEN
+        D | 10    | COLOR=BROWN
+
+
+    </div>
+
+
+
+    <svg>
+    Generated Image Yaha Dekhegi after processing
+    </svg>
+
+
+</div>
+```
+
 
 Guys, we are still developing this approach to make it more easy to use and also advance feature supported.
 we are going to start this project in next few days.
 
 If You have suggest, contact us
-	- surajsinghbisht054@gmail.com 
+    - surajsinghbisht054@gmail.com 
