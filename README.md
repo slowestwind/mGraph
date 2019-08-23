@@ -136,7 +136,8 @@ STEP Two: Diagram Structure Anywhere in HTML Body.
 
 <div class="mgraph" id="Chart0">
 
-Ye Div Processing ke badh.. automatically hide mode m
+This div class="mgraph_PIECHART" will automatically gets hides after processing completation.
+
     <div class="mgraph_PIECHART">
 
         PIECHART
@@ -154,11 +155,13 @@ Ye Div Processing ke badh.. automatically hide mode m
 
 
     <svg>
-    Generated Image Yaha Dekhegi after processing
+    Generated Image Will be Shown Here After Processing
     </svg>
 
-
 </div>
+
+
+ And We Also Going To Develop Online Editor As Live Preview Editor Over Our Official Site.
 ```
 
 
