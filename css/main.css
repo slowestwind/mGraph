@@ -1,6 +1,11 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+}
+
+.body {
+    padding: 0px;
+    margin: 0px;
 }
 
 /* header styple */
@@ -9,4 +14,21 @@
     font-size: 40;
     text-align: center;
     font-weight: bolder;
+}
+
+#markdownInput {
+    border: 2px solid black;
+    height: 80vh;
+    
+}
+
+#markdownPreview {
+    border: 2px solid black;
+    height: 80vh;
+}
+
+.container .row .heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
