@@ -21,6 +21,7 @@
 #markdownInput {
     border: 2px solid black;
     height: 80vh;
+    width: 100%;
     overflow: scroll;
     
 }
@@ -28,6 +29,7 @@
 #markdownPreview {
     border: 2px solid black;
     height: 80vh;
+    width: 100%;
     overflow: scroll;
 }
 
