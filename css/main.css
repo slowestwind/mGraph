@@ -10,6 +10,7 @@
 
 /* header styple */
 .header_text {
+    margin-top: -2px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
     color: solid black;
@@ -38,6 +39,7 @@
 }
 
 header p {
+    margin-top: -10px;
     text-align: center;
     color: green;
     font-weight: bold;
