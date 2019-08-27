@@ -19,19 +19,18 @@
 }
 
 #MDEditor {
+    padding: 20px;
     border: 2px solid black;
     height: 80vh;
-    width: 100%;
     overflow: scroll;
     
 }
 
 #MDViewerPreview {
+    padding: 20px;
     border: 2px solid black;
     height: 80vh;
-    width: 100%;
     overflow: scroll;
-    margin: 10;
 }
 
 .container .row .heading {
@@ -47,4 +46,11 @@ header p {
     color: green;
     font-weight: bold;
     letter-spacing: 10px;
+}
+
+footer {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+
 }
