@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> mGraph markdown | BlareGroup</title>
+    <title> mGraph | BlareGroup</title>
 
     <!-- // bootstrap cdn links -->
     <!-- Latest compiled and minified CSS -->
@@ -14,45 +14,18 @@
     <!-- custom css -->
     <link rel="stylesheet" href="./css/main.css">
 
-  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/surajsinghbisht054/mdviewer/css/mdviewer.css">
-
-  <script src="http://cdn.jsdelivr.net/gh/surajsinghbisht054/mdviewer/js/bitforestinfo_md_viewer.js"></script>
   </head>
   <body>
     <header>
       <div>
-        <h1 class="header_text">mGraph MARKDOWN</h1>
-        <p>BLAREGROUP</p>
+        <h1 class="header_text">mGraph</h1>
+          <p>BLAREGROUP</p>
         <hr>
       </div>
     </header>
-    <div class="container">
-        <div class="row">
-          
-          <div class="col-lg-6">
-            <div class="heading">
-              mGraph Input
-            </div>
-            <textarea id="MDEditor">
 
-### GRAPH_NAME Supported
-| No | GRAPH_NAME  |
-|---|---|
-| 1  | LINECHART   |
-| 2  | BARCHART    |
-| 3  | GANTTCHART  |
-| 4  | FLOWCHART   |
-| 5  | PIECHART    |
-| 6  | CUSTOMCHART |
-
-
-### Examples 
-
-#### LINECHART
-To create linechart diagram use the following syntax.
-
-```
-LINECHART
+<pre class="mgraph-diagram" id="#mgraph_src_one">
+BARCHART
 ------------------
 
 POINT_LABEL_NAME | POINT_CONNECTIVITY | POINT_PROPERTIES
@@ -61,122 +34,19 @@ POINT_LABEL_NAME | POINT_CONNECTIVITY | POINT_PROPERTIES
 | C | D    | 
 | D | E    | 
 
-
-
-OUTPUT will be something like this
-
-
-A ------ B ------------- E
-    |                    |
-    |--- C ------ D ------
-
-
-```
-#### PIECHART
-Syntax:
-```
-    PIECHART
-        ------------------
-
-        | LABEL_NAME | PERSENTAGE | POINT_PROPERTIES
-        | A | 50    | COLOR=RED
-        | B | 30    | COLOR=BLUE
-        | C | 10    | COLOR=GREEN
-        | D | 10    | COLOR=BROWN
-
-```
-#### FLOWCHART
-Syntax:
-```
-LINECHART
 ------------------
+OUTPUT : graph_one
 
-POINT_LABEL_NAME | POINT_CONNECTIVITY | POINT_PROPERTIES
-A | B, C | PLACE=(row, column)
-B | E    | PLACE=(row, column)
-C | D    | PLACE=(x_coordinate, y_coordinate)
-D | E    | PLACE=(x_coordinate, y_coordinate)
+</pre>
 
-```
-
-#### Usages Approach
-```
-STEP One: Add Script To HTML WEBPAGE
-
-<head>
-    <script src="mGraph.min.js"></script>
-</head>
-
-
-
-STEP Two: Diagram Structure Anywhere in HTML Body.
-
-<div class="mgraph" id="Chart0">
-
-This div class="mgraph_PIECHART" will automatically gets hides after processing completation.
-
-    <div class="mgraph_PIECHART">
-
-        PIECHART
-        ------------------
-
-        LABEL_NAME | PERSENTAGE | POINT_PROPERTIES
-        A | 50    | COLOR=RED
-        B | 30    | COLOR=BLUE
-        C | 10    | COLOR=GREEN
-        D | 10    | COLOR=BROWN
-
-
-    </div>
-
-
-
-    <svg>
-    Generated Image Will be Shown Here After Processing
-    </svg>
-
-</div>
-
-
- And We Also Going To Develop Online Editor As Live Preview Editor Over Our Official Site.
-```
-
-
-Guys, we are still developing this approach to make it more easy to use and also advance feature supported.
-we are going to start this project in next few days.
-
-If You have suggest, contact us
-    - surajsinghbisht054@gmail.com 
-
-
-
-            </textarea>
-          </div>
-          <div class="col-lg-6">
-              <div class="heading">
-                  HTML Preview
-              </div>
-              <div id="MDViewerPreview">
-                
-
-              </div>  
-          </div>
-        </div>
-    </div>
-
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
 
     <!-- javascript  -->
     <!-- We can call main function here-->
-    <script src="js/mGraph.js"></script>
-    <script type="text/javascript">
-      // Bind Keys To Automatically Trigger Preveiw Function, At Every Key press event
-      bindkey();
-      // Or Manually, Call
-      preview();
-
+    <script src="js/mGraph.js">
     </script>
-    <br>
-    <br>
     <footer>BlareGroup &copy; Copyright 2019 | All Right Reserved.</footer>
   </body>
 </html>

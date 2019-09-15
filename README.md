@@ -124,21 +124,18 @@ D | E    | PLACE=(x_coordinate, y_coordinate)
 
 #### Usages Approach
 ```
-STEP One: Add Script To HTML WEBPAGE
-
-<head>
+STEP One: Add mGraph Script URL at the End of Webpage 
+<footer>
     <script src="mGraph.min.js"></script>
-</head>
+</footer>
 
 
 
 STEP Two: Diagram Structure Anywhere in HTML Body.
 
-<div class="mgraph" id="Chart0">
+This pre class="mgraph-diagram" will automatically gets hides after processing completation.
 
-This div class="mgraph_PIECHART" will automatically gets hides after processing completation.
-
-    <div class="mgraph_PIECHART">
+    <pre class="mgraph_PIECHART">
 
         PIECHART
         ------------------
@@ -149,16 +146,18 @@ This div class="mgraph_PIECHART" will automatically gets hides after processing 
         C | 10    | COLOR=GREEN
         D | 10    | COLOR=BROWN
 
+        ---------------------
+        OUTPUT : graph_one
+    </pre>
 
-    </div>
+    Here, graph_one is the id of output svg object. In simple words, our generator will
+    insert output into graph_one svg object
 
+    Example:
+        <svg id="graph_one">
+            Generated Image Will be Shown Here After Processing
+        </svg>
 
-
-    <svg>
-    Generated Image Will be Shown Here After Processing
-    </svg>
-
-</div>
 
 
  And We Also Going To Develop Online Editor As Live Preview Editor Over Our Official Site.
@@ -168,5 +167,10 @@ This div class="mgraph_PIECHART" will automatically gets hides after processing 
 Guys, we are still developing this approach to make it more easy to use and also advance feature supported.
 we are going to start this project in next few days.
 
-If You have suggest, contact us
-    - surajsinghbisht054@gmail.com 
+
+### Authors
+```
+    Suraj Singh Bisht 
+    surajsinghbisht054@gmail.com
+    
+```
