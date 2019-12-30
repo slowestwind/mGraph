@@ -1,168 +1,198 @@
-//								[ license ]
+
+//
+//	                           [ license ]
 //
 //                                 Apache License
 //                           Version 2.0, January 2004
 //                        http://www.apache.org/licenses/
+// Please read licence file.
+
 //
-// Please Read LICENCE file.
 //     Author:
 //			Suraj Singh Bisht 
 //			surajsinghbisht054@gmail.com
-//			blaregroup.com
 //			github.com/surajsinghbisht054
-//
-// --------------------------------------------------------------
-//                 Configuration - Start
-// ---------------------------------------------------------------
 
-// variable to control function information output
-debug = true; 
 
-// variable to store objects
-mgraph_diagrams_object_global_list=null;
+/*
+* configurations options
+*
+*/
+debug = true; // dubug console output messages
 
-// to processes line chart
-function mgraph_linechart_processor(graph_body, graph_footer){
-	console.log("MGRAPH LINE CHART PROCESSOR");
+// to retrieve svg object
+function svgobj(objid){
+	pprint(document.getElementById(objid));
+	return document.getElementById(objid);
+}
+
+// print console output
+function pprint(msg){
+	if(debug){
+		console.log(msg);
+	}
+}
+
+// function to handle line chart data
+function linechart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint(" Line Chart Generator Call");
 
 }
 
-// to processes bar chart
-function mgraph_barchart_processor(graph_body, graph_footer){
-	console.log("MGRAPH BAR CHART PROCESSOR");
+// function to handle bar chart data
+function barchart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint(" Bar Chart Generator Call");
+
+
 }
 
-// to processes gantt chart
-function mgraph_ganttchart_processor(graph_body, graph_footer){
-	console.log("MGRAPH GANTT CHART PROCESSOR");
+
+// function to handle gantt chart data
+function ganttchart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint(" Gantt Chart Generator Call");
+
 }
 
-// to processes flow chart
-function mgraph_flowchart_processor(graph_body, graph_footer){
-	console.log("MGRAPH FLOW CHART PROCESSOR");
+
+// function to handle flowchart data
+function flowchart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint("Flow Chart Generator Call");
+
 }
 
-// to processes pie chart
-function mgraph_piechart_processor(graph_body, graph_footer){
-	console.log("MGRAPH PIE CHART PROCESSOR");
+
+// function to handle pie chart data
+function piechart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint("Pie Chart Generator Call");
+
 }
 
-// to processes custom chart
-function mgraph_customchart_processor(graph_body, graph_footer){
-	console.log("MGRAPH CUSTOM CHART PROCESSOR");
+
+// function to handle tree chart data
+function treechart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint("Tree Chart Generator Call");
+
 }
 
-// function to detect diagram type and call specific diagram processor function to process further
-function mgraph_chart_generator_handler(_header, _body, _footer){
-	
-	_header = _header.toLowerCase().replace("\n", "");
 
-	if (_header=="linechart") {
-		mgraph_linechart_processor();
+// function to handle custom chart data
+function customchart(data){
+	svg = svgobj(data);
+        head = data[1];
+        body = data[3];
+        tail = data[6];
+	pprint(" Custom Chart Generator Call");
 
-	}else if (_header=="barchart") {
-		mgraph_barchart_processor();
+}
 
-	}else if (_header=="ganttchart") {
-		mgraph_ganttchart_processor();
 
-	}else if (_header=="flowchart") {
-		mgraph_flowchart_processor();
 
-	}else if (_header=="piechart") {
-		mgraph_flowchart_processor();
 
-	}else if (_header=="customchart") {
-		mgraph_customchart_processor();
+// Chart Data filter and extraction function
+function ChartGenerator(reExpression){
+	//console.log(reExpression);
+/*
+0: all graph data
+1: graph heading
+3: graph body
+6: graph property
+*/
+	head = reExpression[1]
+	body = reExpression[3]
+	tail = reExpression[6]
+
+	if(head == "lchrt"){
+	pprint("Line Graph Detected ");
+		linechart(reExpression);
+
+	}else if(head == "bchrt"){
+        pprint("Bar Graph Detected ");
+                barchart(reExpression)
+
+	}else if(head == "gchrt"){
+        pprint("Gantt Graph Detected ");
+		ganttchart(reExpression)
+
+	}else if(head == "fchrt"){
+        pprint("Flow Graph Detected ");
+		flowchart(reExpression)
+
+
+	}else if(head == "pchrt"){
+        pprint("Pie Graph Detected ");
+		piechart(reExpression)
+
+
+	}else if(head == "tchrt"){
+        pprint("Tree Graph Detected ");
+		treechart(reExpression)
+
+	}else if(head == "cchrt"){
+        pprint("Custom Graph Detected ");
+		customchart(reExpression)
 
 	}else{
-		console.error("Diagram Type Not Detected");
-		console.log("|",_header,"|");
-	}
-}
+        pprint("No Graph Detected ");
 
-
-// get diagram object
-function mgraph_diagrams_objects(){
-	if (mgraph_diagrams_object_global_list) {
-		if (debug) {
-			console.log("mgraph_load object global list");
-		}
-		return mgraph_diagrams_object_global_list;
-
-	}else{
-
-		if (debug) {
-			console.log("mgraph extracting object global list");
-		}
-		//
-		mgraph_diagrams_object_global_list =document.getElementsByClassName("mgraph-diagram");
-		return mgraph_diagrams_object_global_list;		
 	}
 
 }
 
 
-// function to start processing of diagram generation
-function mgraph_process_diagram_type(){
-	var objects = mgraph_diagrams_objects();
-	var diagram_markdown_object=null;
 
-	// diagram syntax seperated
-	var diagram_header=null;
-	var diagram_body=null;
-	var diagram_footer=null;
+// text processor
+function textProcessor(text){
+	// https://javascript.info/regexp-methods
+	var syntaxContent = "(.+)\n(-{5,})((\n|.)+?)(-{5,})((\n|.)+?)(?=\n\n)";
 
-	for (var i = objects.length - 1; i >= 0; i--) {
-		diagram_markdown_object = objects[i].textContent.split(/-{5,}/i);
-		if (debug) {
-			console.log(diagram_markdown_object);			
-		}
+	let matchall = text.matchAll(syntaxContent);
 
-		//
-		if (diagram_markdown_object.length==3) {
-			diagram_header = diagram_markdown_object[0];
-			diagram_body = diagram_markdown_object[1];
-			diagram_footer = diagram_markdown_object[2];
-			mgraph_chart_generator_handler(diagram_header, diagram_body, diagram_footer);
+	matchall = Array.from(matchall);
 
-		}
-		else{
-			console.error("Error Detected In Diagram Syntaxs Formatting");
-			console.log(diagram_markdown_object);
-		}
+	for(var i=0; i<matchall.length; i++){
+		ChartGenerator(matchall[i]);
 	}
-
-
 }
 
-// function to hide html container that contain diagram markdown syntaxs
-function mgraph_hide_diagram_markdown(){
-	var diagrams = mgraph_diagrams_objects();
-
-	// hidden diagram  containers
-	for (var i = diagrams.length - 1; i >= 0; i--) {
-		diagrams[i].hidden=true;
-		console.log(diagrams[i]);
-	}
-
-
-}
-
-// main function
-function mgraph_main() {
-	// hide diagram containers
-	mgraph_hide_diagram_markdown();
-	mgraph_process_diagram_type();
-}
-
-// mgraph activate
-function mgraph_activate() {
-	console.log("mgraph module activated..");
-	mgraph_main();
+// hide object
+function hideobj(obj){
+	obj.hidden = true;
 }
 
 
+/*
 
-// main trigger function
-mgraph_activate();
+	initialise function
+
+*/
+function mgraph_draw(pre_input_id){
+	// retrieve obj by id
+	objc = document.getElementById(pre_input_id);
+	pprint("input id : " + pre_input_id);
+	hideobj(objc); // hide object
+	textProcessor(objc.textContent);
+}

@@ -24,28 +24,43 @@
       </div>
     </header>
 
-<pre class="mgraph-diagram" id="#mgraph_src_one">
-BARCHART
-------------------
+<pre id="mgraph_src_one">
 
-POINT_LABEL_NAME | POINT_CONNECTIVITY | POINT_PROPERTIES
-| A | B, C |
-| B | E    | 
-| C | D    | 
-| D | E    | 
+fchrt
+-----
+intial_point | terminate_point | point_properties
+| A | B, C | text="1"
+| B | E    |
+| C | D    |
+| D | E    |
 
-------------------
-OUTPUT : graph_one
+-----
+output_id: something
+
+
+bchrt
+-----
+intial_point | terminate_point | point_properties
+| A | B, C | text="1"
+| B | E    |
+| C | D    |
+| D | E    |
+
+-----
+output_id: somethingelse
+
 
 </pre>
 
-<svg width="100" height="100">
+<svg width="100" height="100" id=>
   <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
 </svg>
 
     <!-- javascript  -->
     <!-- We can call main function here-->
-    <script src="js/mGraph.js">
+    <script src="js/mGraph.js"></script>
+    <script type="text/javascript">
+	mgraph_draw("mgraph_src_one");
     </script>
     <footer>BlareGroup &copy; Copyright 2019 | All Right Reserved.</footer>
   </body>
