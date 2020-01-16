@@ -13,6 +13,7 @@
     
     <!-- custom css -->
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./svgChart/main.css"
 
   </head>
   <body>
@@ -52,9 +53,184 @@ output_id: somethingelse
 
 </pre>
 
-<svg width="100" height="100" id=>
-  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    <!-- svg preparation -->
+
+
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="xGrid">
+  <line x1="90" x2="90" y1="5" y2="371"></line>
+</g>
+<g class="grid y-grid" id="yGrid">
+  <line x1="90" x2="705" y1="370" y2="370"></line>
+</g>
+  <g class="labels x-labels">
+  <text x="100" y="400">2008</text>
+  <text x="246" y="400">2009</text>
+  <text x="392" y="400">2010</text>
+  <text x="538" y="400">2011</text>
+  <text x="684" y="400">2012</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels">
+  <text x="80" y="15">15</text>
+  <text x="80" y="131">10</text>
+  <text x="80" y="248">5</text>
+  <text x="80" y="373">0</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" data-setname="Our first data set">
+  <circle cx="90" cy="192" data-value="7.2" r="4"></circle>
+  <circle cx="240" cy="141" data-value="8.1" r="4"></circle>
+  <circle cx="388" cy="179" data-value="7.7" r="4"></circle>
+  <circle cx="531" cy="200" data-value="6.8" r="4"></circle>
+  <circle cx="677" cy="104" data-value="6.7" r="4"></circle>
+</g>
 </svg>
+
+
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="xGrid">
+  <line x1="90" x2="90" y1="5" y2="371"></line>
+</g>
+<g class="grid y-grid" id="yGrid">
+  <line x1="90" x2="705" y1="370" y2="370"></line>
+</g>
+  <g class="labels x-labels">
+  <text x="100" y="400">2008</text>
+  <text x="246" y="400">2009</text>
+  <text x="392" y="400">2010</text>
+  <text x="538" y="400">2011</text>
+  <text x="684" y="400">2012</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels">
+  <text x="80" y="15">15</text>
+  <text x="80" y="131">10</text>
+  <text x="80" y="248">5</text>
+  <text x="80" y="373">0</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" data-setname="Our first data set">
+  <polyline
+  fill="none"
+  stroke="#0074d9"
+  stroke-width="2"
+  points="
+    90 192,
+    240 140,
+    388  149,
+    531 200,
+    677 104
+  "
+/>
+</g>
+</svg>
+
+
+
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="xGrid">
+  <line x1="90" x2="90" y1="5" y2="371"></line>
+</g>
+<g class="grid y-grid" id="yGrid">
+  <line x1="90" x2="705" y1="370" y2="370"></line>
+</g>
+  <g class="labels x-labels">
+  <text x="100" y="400">2008</text>
+  <text x="246" y="400">2009</text>
+  <text x="392" y="400">2010</text>
+  <text x="538" y="400">2011</text>
+  <text x="684" y="400">2012</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels">
+  <text x="80" y="15">15</text>
+  <text x="80" y="131">10</text>
+  <text x="80" y="248">5</text>
+  <text x="80" y="373">0</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" data-setname="Our first data set">
+  <rect x="90" y="331" width="20" height="40" ></rect>
+  <rect x="240" y="291" width="20" height="80" ></rect>
+  <rect x="388" y="211" width="20" height="160" ></rect>
+  <rect x="531" y="251" width="20" height="120" ></rect>
+  <rect x="677" y="171" width="20" height="200" ></rect>
+
+</g>
+</svg>
+
+
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="xGrid">
+  <line x1="90" x2="90" y1="5" y2="371"></line>
+</g>
+<g class="grid y-grid" id="yGrid">
+  <line x1="90" x2="705" y1="370" y2="370"></line>
+</g>
+  <g class="labels x-labels">
+  <text x="100" y="400">0</text>
+  <text x="246" y="400">100</text>
+  <text x="392" y="400">20</text>
+  <text x="538" y="400">300</text>
+  <text x="684" y="400">400</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels">
+  <text x="80" y="15">2003</text>
+  <text x="80" y="131">2002</text>
+  <text x="80" y="248">2001</text>
+  <text x="80" y="373">2000</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" data-setname="Our first data set">
+  <rect x="90" y="331" width="40" height="20" ></rect>
+  <rect x="240" y="291" width="80" height="20" ></rect>
+  <rect x="388" y="211" width="120" height="20" ></rect>
+  <rect x="531" y="251" width="160" height="20" ></rect>
+  <rect x="677" y="171" width="200" height="20" ></rect>
+
+</g>
+</svg>
+
+
+
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
+  <title id="title">A line chart showing some information</title>
+<g class="grid x-grid" id="xGrid">
+  <line x1="90" x2="90" y1="5" y2="371"></line>
+</g>
+<g class="grid y-grid" id="yGrid">
+  <line x1="90" x2="705" y1="370" y2="370"></line>
+</g>
+  <g class="labels x-labels">
+  <text x="100" y="400">0</text>
+  <text x="246" y="400">100</text>
+  <text x="392" y="400">20</text>
+  <text x="538" y="400">300</text>
+  <text x="684" y="400">400</text>
+  <text x="400" y="440" class="label-title">Year</text>
+</g>
+<g class="labels y-labels">
+  <text x="80" y="15">2003</text>
+  <text x="80" y="131">2002</text>
+  <text x="80" y="248">2001</text>
+  <text x="80" y="373">2000</text>
+  <text x="50" y="200" class="label-title">Price</text>
+</g>
+<g class="data" data-setname="Our first data set">
+  <rect x="90" y="350" width="140" height="20" ></rect>
+  <rect x="90" y="230" width="280" height="20" ></rect>
+  <rect x="90" y="115" width="420" height="20" ></rect>
+  <rect x="90" y="0" width="560" height="20" ></rect>
+
+</g>
+</svg>
+
 
     <!-- javascript  -->
     <!-- We can call main function here-->
