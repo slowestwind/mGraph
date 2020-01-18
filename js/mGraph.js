@@ -20,6 +20,63 @@
 */
 debug = true; // dubug console output messages
 
+
+
+// data extration function
+
+function dataextraction(body){
+	
+    var row = body.split('\n'); //splitting data in rows from bulk
+    var singlerowdata =[];		//array used to keep row data in different rows
+ 	var rownumber=0;			//this used to increment row number
+    
+  	//this loop will extract data from rows and strore in singlerowdata 2d array
+  	for(var i=0;i<row.length;i++)
+    {
+    	//this checks if the row is empty or not if empty then skips otherwise follow steps
+    	if(row[i]!=""){
+
+    		var tmp = row[i].split('\|');	
+    		tmp.shift();	//shift() used to remove 1st element of array that is unnessary(blank space) element
+    														
+    		//this loop will feed data in array 
+    		for(var j=0;j<tmp.length;j++)
+	    	{
+	    			
+	    			if(j==0){
+
+						singlerowdata[rownumber]=new Array(tmp.length);
+						singlerowdata[rownumber][j]=(tmp[j]);
+
+					}
+	    			else if(j<tmp.length-1)
+	    			singlerowdata[rownumber][j]=(tmp[j]);
+	    			else 
+	    			singlerowdata[rownumber][j]=tmp[j];
+	    	}
+			
+			rownumber++;
+    	}     	
+	}	
+
+
+    	//check data for console
+    	for(var i=0;i<singlerowdata.length;i++)
+    	{	
+    		for(var j=0;j<singlerowdata[i].length;j++)
+    			pprint(i+","+j+"="+singlerowdata[i][j]);
+    	
+    	}
+    	
+
+	// pprint(singlerowdata);
+	return singlerowdata;
+
+
+}
+
+
+
 // to retrieve svg object
 function svgobj(objid){
 	pprint(document.getElementById(objid));
@@ -32,6 +89,21 @@ function pprint(msg){
 		console.log(msg);
 	}
 }
+
+// function to handle line chart data
+function dotchart(data) {
+	svg = svgobj(data);
+	head = data[1];
+	body = data[3];
+	tail = data[6];
+	pprint(" Dot Chart Generator Call");
+
+
+
+
+	
+}
+
 
 // function to handle line chart data
 function linechart(data){
@@ -48,9 +120,12 @@ function barchart(data){
 	svg = svgobj(data);
         head = data[1];
         body = data[3];
-        tail = data[6];
+		tail = data[6];
 	pprint(" Bar Chart Generator Call");
-
+	var dataArray = dataextraction(body);
+	for(var i = 0; i<dataArray.length; i++){
+		pprint(dataArray[i]);
+	}
 
 }
 
