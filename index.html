@@ -13,7 +13,7 @@
     
     <!-- custom css -->
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./svgChart/main.css"
+    <link rel="stylesheet" href="./svgChart/main.css">
 
   </head>
   <body>
@@ -49,6 +49,15 @@ intial_point | terminate_point | point_properties
 
 -----
 output_id: somethingelse
+
+pchrt
+-----
+| A | 42 |30| text="1"
+| B | 50 |20| 
+| C | 10 |60| 
+                                                                                                                                                                    
+-----
+output_id: result
 
 
 </pre>
@@ -233,6 +242,9 @@ output_id: somethingelse
 </svg>
 
 
+<!--This is temporarily div to view pie chart-->
+<div id="result" style="overflow:scroll;border:3px solid green; margin:5px auto;height:300px;width:900px; ">
+</div>
     <!-- javascript  -->
     <!-- We can call main function here-->
     <script src="js/mGraph.js"></script>
