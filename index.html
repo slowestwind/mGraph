@@ -42,13 +42,13 @@ output_id: something
 bchrt
 -----
 intial_point | terminate_point | point_properties
-| A | B, C | text="1"
-| B | E    |
-| C | D    |
-| D | E    |
+| A | 42  | text="1"
+| B | 84  |
+| C | 120 |
+| D | 154 |
 
 -----
-output_id: somethingelse
+output_id: bcresult
 
 pchrt
 -----
@@ -241,6 +241,9 @@ output_id: result
 </g>
 </svg>
 
+<!-- temp div to see bChart result -->
+<div id="bcresult" style="overflow:scroll;border:3px solid green; margin:5px auto;height:300px;width:900px; ">
+</div>
 
 <!--This is temporarily div to view pie chart-->
 <div id="result" style="overflow:scroll;border:3px solid green; margin:5px auto;height:300px;width:900px; ">

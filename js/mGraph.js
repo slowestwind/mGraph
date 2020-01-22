@@ -127,6 +127,118 @@ function barchart(data){
 		pprint(dataArray[i]);
 	}
 
+	var total=0; //takes total of all number in one column
+	var sign=''; //for positive or negative sign 
+				
+	// x-axix and y-axix values
+	var x1 = 90;	// y-axix cordinates
+	var x2 = 90		// y-axix cordinates 
+	var y1 = 5		// y-axix cordinates
+	var y2 = 371	// y-axix cordinates
+	var size_of_x = dataArray.length;
+	// console.log(size_of_x);
+	
+
+
+	var x1 = 90;	// x-axix cordinates
+	var x2 = 705	// x-axix cordinates 
+	var y1 = 370	// x-axix cordinates			
+	var y2 = 370	// x-axix cordinates
+	var array_container = [];
+	// maximum size of y cordinates axix
+	for(var i = 1; i<dataArray.length; i++){
+		var tmp = dataArray[i][1];
+		console.log(tmp);	
+		array_container.push(tmp);
+	}
+	var size_of_y = Math.max(...array_container);
+	console.log(size_of_y);
+	
+	delete(array_container); // delete the created recent array
+
+	// find the max round figure of max element of y
+	if(size_of_y<=10){
+		size_of_y = 1;
+	} else if(size_of_y<=20){
+		size_of_y = 2;
+	} else if(size_of_y<=50){
+		size_of_y = 5;
+	} else if(size_of_y<=100){
+		size_of_y = 10;
+	} else if(size_of_y>100 && size_of_y<=100000000){
+		size_of_y = size_of_y/10;
+	}
+
+
+
+		// some mathematics 
+		var y_length = 366;
+		var x_length = 615;
+
+		var x_distance = x_length/size_of_x;
+		var y_distance = y_length/10;	
+
+		var x_ini = 10; // x-axix initialization pixel
+		var y_ini = 15;  // y-axix initialization pixel
+
+		var y = 0; // y-axix value begin
+
+		
+	// svg diagram variable 
+	//extracting output ID
+    var output_id=tail.split(':');
+    output_id = output_id[1].trim();
+    pprint(output_id);
+
+	var svgDiagram = document.getElementById(output_id); 
+
+	// diagram initialization; 
+	var diagram = "<svg version=\"1.2\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" class=\"graph\" aria-labelledby=\"title\" role=\"img\">";
+
+
+
+	
+	// making x-axix and y-axix
+	for(var i = 1; i<size_of_x; i++){
+		// adding of y axix line
+		diagram = diagram+"<g class=\"grid y-grid\" id=\"xGrid\">"+"<line x1=\"90\" x2=\"90\" y1=\"5\" y2=\"371\"></line>"+"</g>";
+		// adding of x axix line
+		diagram = diagram+"<g class=\"grid y-grid\" id=\"yGrid\"><line x1=\"90\" x2=\"705\" y1=\"370\" y2=\"370\"></line></g>";
+		
+		x_distance = x_distance+x_ini;
+		y_distance = y_distance+y_ini;
+
+		// y_distance = y_distance+y_ini;
+
+
+		
+		// // some mathematics 
+		// var y_length = 366;
+		// var x_length = 615;
+
+		// var x_distance = x_length/size_of_x;
+		// var y_distance = y_length/10;	
+
+		// adding x-axix data 
+		diagram = diagram+"<g class=\"labels x-labels\"><text x=\""+x_distance+"\" y=\"400\">"+dataArray[i][0]+"</text></g>";
+		// adding y-axix data 
+		for(var j = 1; j<=10; j++){
+			y_distance = y_distance+y_ini;
+
+			y = y+size_of_y;
+			diagram = diagram+"<g class=\"labels y-labels\"><text x=\"80\" y=\""+y_distance+"\">"+y+"</text>";
+		}
+		y = 0;
+		y_distance = y_length/10;
+
+		diagram = diagram+"<g class=\"labels y-labels\"><text x=\"80\" y=\""+y_distance8+"\">"+y+"</text>";
+	}
+
+
+	diagram=diagram+"</svg>";  //closing svg object
+        //pprint(diagram);
+        svgDiagram.innerHTML = diagram;	//sending data to html
+
 }
 
 
