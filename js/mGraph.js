@@ -131,59 +131,61 @@ function barchart(data){
 	var sign=''; //for positive or negative sign 
 				
 	// x-axix and y-axix values
-	var x1 = 90;	// y-axix cordinates
-	var x2 = 90		// y-axix cordinates 
-	var y1 = 5		// y-axix cordinates
-	var y2 = 371	// y-axix cordinates
-	var size_of_x = dataArray.length;
+	// var x1 = 90;	// y-axix cordinates
+	// var x2 = 90		// y-axix cordinates 
+	// var y1 = 5		// y-axix cordinates
+	// var y2 = 371	// y-axix cordinates
+	// var size_of_x = dataArray.length; // number of element of x axix
 	// console.log(size_of_x);
 	
 
 
-	var x1 = 90;	// x-axix cordinates
-	var x2 = 705	// x-axix cordinates 
-	var y1 = 370	// x-axix cordinates			
-	var y2 = 370	// x-axix cordinates
-	var array_container = [];
+	// var x1 = 90;	// x-axix cordinates
+	// var x2 = 705	// x-axix cordinates 
+	// var y1 = 370	// x-axix cordinates			
+	// var y2 = 370	// x-axix cordinates
+	var array_container = []; // temp array to extract max element
 	// maximum size of y cordinates axix
 	for(var i = 1; i<dataArray.length; i++){
 		var tmp = dataArray[i][1];
 		console.log(tmp);	
 		array_container.push(tmp);
 	}
-	var size_of_y = Math.max(...array_container);
-	console.log(size_of_y);
+	var max_of_y = Math.max(...array_container);
+	console.log(max_of_y);
 	
 	delete(array_container); // delete the created recent array
 
-	// find the max round figure of max element of y
-	if(size_of_y<=10){
-		size_of_y = 1;
-	} else if(size_of_y<=20){
-		size_of_y = 2;
-	} else if(size_of_y<=50){
-		size_of_y = 5;
-	} else if(size_of_y<=100){
-		size_of_y = 10;
-	} else if(size_of_y>100 && size_of_y<=100000000){
-		size_of_y = size_of_y/10;
-	}
+	// rounded to next 10th digits
+	var round_of_max_of_y = Math.ceil((max_of_y+1)/10)*10;
+	var temp = round_of_max_of_y/10;
+	// console.log("rounded"+round_of_max_of_y);
+	
 
-
-
-		// some mathematics 
-		var y_length = 366;
-		var x_length = 615;
-
-		var x_distance = x_length/size_of_x;
-		var y_distance = y_length/10;	
-
-		var x_ini = 10; // x-axix initialization pixel
-		var y_ini = 15;  // y-axix initialization pixel
-
-		var y = 0; // y-axix value begin
-
+		// console.log("size of y"+max_of_y);
 		
+
+
+		//********* 
+		//* global variable declaration
+		//*********
+		// x and y axix lenth
+		var y_length = 366;  //366
+		var x_length = 800;  // 615
+		// x and y-axix variable constant distance
+		var x_line_division = x_length/size_of_x;
+		console.log(x_line_division);
+		
+		var y_line_division = y_length/10;
+		console.log(y_line_division);	
+		// initial distance from x and y cordinates
+		var x_ini = 100; // x-axix initialization pixel
+		var y_ini = 15;  // y-axix initialization pixel
+		
+		// axix data will be position through this
+		var x_axix_data_position = 0;
+		var y_axix_data_position = 0;
+
 	// svg diagram variable 
 	//extracting output ID
     var output_id=tail.split(':');
@@ -198,42 +200,42 @@ function barchart(data){
 
 
 	
-	// making x-axix and y-axix
+	//*= making x-axix and y-axix
 	for(var i = 1; i<size_of_x; i++){
 		// adding of y axix line
-		diagram = diagram+"<g class=\"grid y-grid\" id=\"xGrid\">"+"<line x1=\"90\" x2=\"90\" y1=\"5\" y2=\"371\"></line>"+"</g>";
+		diagram = diagram+"<g class=\"grid y-grid\" id=\"xGrid\">"+"<line x1=\"90\" x2=\"90\" y1=\"5\" y2=\"400\"></line>"+"</g>";
+
 		// adding of x axix line
-		diagram = diagram+"<g class=\"grid y-grid\" id=\"yGrid\"><line x1=\"90\" x2=\"705\" y1=\"370\" y2=\"370\"></line></g>";
+		diagram = diagram+"<g class=\"grid y-grid\" id=\"yGrid\"><line x1=\"90\" x2=\"705\" y1=\"399\" y2=\"399\"></line></g>";
 		
-		x_distance = x_distance+x_ini;
-		y_distance = y_distance+y_ini;
-
-		// y_distance = y_distance+y_ini;
-
-
+		// y_line_division = y_line_division+y_ini;
+		x_axix_data_position = x_axix_data_position+x_line_division;
+		console.log(x_axix_data_position);
 		
-		// // some mathematics 
-		// var y_length = 366;
-		// var x_length = 615;
-
-		// var x_distance = x_length/size_of_x;
-		// var y_distance = y_length/10;	
-
 		// adding x-axix data 
-		diagram = diagram+"<g class=\"labels x-labels\"><text x=\""+x_distance+"\" y=\"400\">"+dataArray[i][0]+"</text></g>";
-		// adding y-axix data 
-		for(var j = 1; j<=10; j++){
-			y_distance = y_distance+y_ini;
+		diagram = diagram+"<g class=\"labels x-labels\"><text x=\""+x_axix_data_position+"\" y=\"420\">"+dataArray[i][0]+"</text></g>";
+		
 
-			y = y+size_of_y;
-			diagram = diagram+"<g class=\"labels y-labels\"><text x=\"80\" y=\""+y_distance+"\">"+y+"</text>";
-		}
-		y = 0;
-		y_distance = y_length/10;
-
-		diagram = diagram+"<g class=\"labels y-labels\"><text x=\"80\" y=\""+y_distance8+"\">"+y+"</text>";
+		//*= bar making procedure
+		// y value setting
+		// h+y = 400(line-height)
+		var y = 0;
+		y = 399 - dataArray[i][1];
+		diagram = diagram+"<g class=\"data\" data-setname=\"Our first data set\"><rect x=\""+(x_axix_data_position-10)+"\" y=\""+y+"\" width=\"20\" height=\""+dataArray[i][1]+"\" ></rect>";
 	}
 
+
+		// adding y-axix data 
+		for(var j = 1; j<=11; j++){			
+			// x line data putting position.
+			y_axix_data_position = y_axix_data_position+y_line_division;
+			console.log(y_axix_data_position);
+			diagram = diagram+"<g class=\"labels y-labels\"><text x=\"80\" y=\""+y_axix_data_position+"\">"+round_of_max_of_y+"</text>";
+			round_of_max_of_y = round_of_max_of_y-temp;
+			console.log("value of y"+round_of_max_of_y);
+			
+
+		}
 
 	diagram=diagram+"</svg>";  //closing svg object
         //pprint(diagram);
